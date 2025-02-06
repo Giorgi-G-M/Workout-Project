@@ -29,16 +29,7 @@ class WorkoutPlan(models.Model):
     def __str__(self):
         return f"{self.title} {self.user.username}"
     
-# class WorkoutPlanExercise(models.Model):
-#     wokrout_plan = models.ForeignKey(WorkoutPlan, on_delete=models.CASCADE,related_name="exercises")
-#     exsercies = models.ForeignKey(Exercise,on_delete=models.CASCADE)
-#     repetitions = models.PositiveIntegerField(null=True,blank=True,help_text="number of sets, if applicable")
-
-
-#     def __str__(self):
-#         return f"{self.wokrout_plan.title} {self.exsercies.name}"
-
-
+    
 class Tracking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tracking")
 
