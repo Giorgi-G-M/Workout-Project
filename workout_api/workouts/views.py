@@ -1,9 +1,12 @@
 from rest_framework import viewsets, permissions
-from .models import Exercise, WorkoutPlan, Tracking
-from .serializers import ExerciseSerializer, WorkoutPlanSerializer, TrackingSerializer
+from .models import Exercise, WorkoutPlan, Tracking, User
+from .serializers import ExerciseSerializer, WorkoutPlanSerializer, TrackingSerializer, UserSerializer
 
 
-
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
 
 class ExerciseViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
